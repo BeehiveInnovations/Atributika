@@ -67,7 +67,7 @@ public extension String {
 #endif
     }
     
-    var htmlTextAttrib = self
+    let htmlTextAttrib = self
       .style(tags: [
         "a":links,
         "b":Attrs().font(.boldSystemFont(ofSize: fontSizeToUse)),
@@ -80,15 +80,16 @@ public extension String {
   }
 }
 
+@available(macOS 10.15, iOS 13.0, *)
 public extension NSString {
   /// Check if a given string contains HTML
-  @objc var containsHTML: Bool {
+  @objc var doesContainHTML: Bool {
     return (self as String).containsHTML
   }
   
   /// Convert given HTML string to NSAttributedString
   /// - Parameter fontSizeToUse: base text font size
-  @objc func toAttributedStringFromHTML(usingFontSize fontSizeToUse: CGFloat) -> NSAttributedString {
+  @objc func convertToAttributedStringFromHTML(usingFontSize fontSizeToUse: CGFloat) -> NSAttributedString {
     // Convert NSString to String and call the String method
     return (self as String).toAttributedStringFromHTML(usingFontSize: fontSizeToUse)
   }
