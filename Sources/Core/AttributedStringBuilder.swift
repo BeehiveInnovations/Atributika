@@ -155,14 +155,54 @@ public struct DefaultHTMLSpecialsProvider: HTMLSpecialsProvider {
         return HTMLSpecials[htmlSpecial].map { String($0) }
     }
 
-    private let HTMLSpecials: [String: Character] = [
-        "quot": "\u{22}",
-        "amp": "\u{26}",
-        "apos": "\u{27}",
-        "lt": "\u{3C}",
-        "gt": "\u{3E}",
-        "nbsp": "\u{A0}",
-    ]
+  private let HTMLSpecials: [String: Character] = [
+    // Basic symbols
+    "quot": "\u{22}",    // "
+    "amp": "\u{26}",     // &
+    "apos": "\u{27}",    // '
+    "lt": "\u{3C}",      // <
+    "gt": "\u{3E}",      // >
+    "nbsp": "\u{A0}",    // Non-breaking space
+    
+    // Quotation marks
+    "lsquo": "\u{2018}", // ‘ (left single quotation mark)
+    "rsquo": "\u{2019}", // ’ (right single quotation mark)
+    "ldquo": "\u{201C}", // “ (left double quotation mark)
+    "rdquo": "\u{201D}", // ” (right double quotation mark)
+    
+    // Dashes and ellipses
+    "ndash": "\u{2013}", // – (en dash)
+    "mdash": "\u{2014}", // — (em dash)
+    "hellip": "\u{2026}", // … (horizontal ellipsis)
+    
+    // Mathematical symbols
+    "plusmn": "\u{00B1}", // ± (plus-minus sign)
+    "times": "\u{00D7}",  // × (multiplication sign)
+    "divide": "\u{00F7}", // ÷ (division sign)
+    "frac14": "\u{00BC}", // ¼ (fraction one-quarter)
+    "frac12": "\u{00BD}", // ½ (fraction one-half)
+    "frac34": "\u{00BE}", // ¾ (fraction three-quarters)
+    
+    // Currency symbols
+    "euro": "\u{20AC}",  // € (Euro sign)
+    "pound": "\u{00A3}", // £ (Pound sign)
+    "yen": "\u{00A5}",   // ¥ (Yen sign)
+    "cent": "\u{00A2}",  // ¢ (Cent sign)
+    "curren": "\u{00A4}", // ¤ (Currency sign)
+    
+    // Other symbols
+    "copy": "\u{00A9}",  // © (Copyright sign)
+    "reg": "\u{00AE}",   // ® (Registered trademark sign)
+    "trade": "\u{2122}", // ™ (Trademark sign)
+    "sect": "\u{00A7}",  // § (Section sign)
+    "deg": "\u{00B0}",   // ° (Degree sign)
+    "permil": "\u{2030}", // ‰ (Per mille sign)
+    "bull": "\u{2022}",  // • (Bullet point)
+    "middot": "\u{00B7}", // · (Middle dot)
+    "para": "\u{00B6}",  // ¶ (Pilcrow sign, paragraph sign)
+    "laquo": "\u{00AB}", // « (Left-pointing double angle quotation mark)
+    "raquo": "\u{00BB}"  // » (Right-pointing double angle quotation mark)
+  ]
 }
 
 public extension AttributedStringBuilder {
